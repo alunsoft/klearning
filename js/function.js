@@ -7,7 +7,11 @@ function fn_iniciarSession(formId) {
 		url:"phps/iniciar.php",
 		data:serialForm,
 		success:function(res){
-			window.location.href = "index.php";
+			if(res == "1"){
+				window.location.href = "index.php";
+			}else{
+				fn_errorLogin("alert_error","Error al iniciar...");
+			}
 		},
 		error: function(res){
 			fn_errorLogin("alert_error","Error al iniciar...");
@@ -22,4 +26,16 @@ function fn_errorLogin(idMessage,message){
 	$("#"+idMessage).addClass("in");
 	$("#"+idMessage).html(message);
 	window.setTimeout(function() {$("#"+idMessage).removeClass("in")}, 3600);
+}
+
+// funcion Menu
+function fn_menu(titulo, urlPage){
+	$("#x_panel_titulo").html(titulo);
+	$.ajax({
+		type:"POST",
+		url:urlPage,
+		success:function(res){
+			$("#x_panel_princiapl").html(res);
+		}
+	});
 }
