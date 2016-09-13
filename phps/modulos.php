@@ -1,40 +1,25 @@
-<div class="x_title">
-  <h2>Tus Modulos</h2>
-  <div class="clearfix"></div>
-</div>
-<div class="x_content">
-  <div class="row">
-    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-      <div class="tile-stats modulo modulo-primary" data-class="modulo-primary">
-        <div class="icon"><i class="fa fa-font text-primary"></i></div>
-        <div class="count">0</div>
-        <h3>A B C ...</h3>
-        <p>Alfabeto.</p>
-      </div>
-    </div>
-    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-      <div class="tile-stats modulo modulo-info" data-class="modulo-info">
-        <div class="icon"><i class="fa fa-hashtag text-info"></i></div>
-        <div class="count">0</div>
-        <h3>1 2 3 ...</h3>
-        <p>Números.</p>
-      </div>
-    </div>
-    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-      <div class="tile-stats modulo modulo-success" data-class="modulo-success">
-        <div class="icon"><i class="fa fa-users text-success"></i></div>
-        <div class="count">0</div>
-        <h3 class="text-success">Yo, tu, el ...</h3>
-        <p>Pronombres.</p>
-      </div>
-    </div>
-    <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-      <div class="tile-stats modulo modulo-warning" data-class="modulo-warning">
-        <div class="icon"><i class="fa fa-comments-o text-warning"></i></div>
-        <div class="count">0</div>
-        <h3 class="text-warning">ütz awäch</h3>
-        <p>Frases.</p>
-      </div>
+<?php include("session.php");
+if (!isset($_SESSION['id_usuario'])) {
+   header('Location: login.php');
+}else {
+  $q_modulos = "SELECT id_tema, nombre,ejemplo,icono,color FROM tema WHERE estado = 1";
+  $e_modulos = mysql_query($q_modulos); ?>
+  <div class="x_title">
+    <h2>Tus Modulos</h2>
+    <div class="clearfix"></div>
+  </div>
+  <div class="x_content">
+    <div class="row">
+      <?php while ($a_modulos = mysql_fetch_array($e_modulos)) { ?>
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+          <div class="tile-stats modulo modulo-<?php echo $a_modulos['color']; ?>" data-class="modulo-<?php echo $a_modulos['color']; ?>">
+            <div class="icon"><i class="fa <?php echo $a_modulos['icono']; ?> text-<?php echo $a_modulos['color']; ?>"></i></div>
+            <div class="count">0</div>
+            <h3><?php echo $a_modulos['ejemplo']; ?></h3>
+            <p><?php echo $a_modulos['nombre']; ?></p>
+          </div>
+        </div>
+      <?php } ?>
     </div>
   </div>
-</div>
+<?php } ?>

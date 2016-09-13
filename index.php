@@ -79,7 +79,7 @@ if (!isset($_SESSION['id_usuario'])) {
                   <ul class="nav side-menu">
                     <li><a><i class="fa fa-home"></i> Inicio <span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
-                        <li><a href="index.html">Tus Modulos</a></li>
+                        <li><a href="#" onclick="fn_menu('Ütz Awäch', 'phps/modulos.php')">Tus Modulos</a></li>
                       </ul>
                     </li>
                   </ul>
@@ -108,7 +108,7 @@ if (!isset($_SESSION['id_usuario'])) {
                       <li>
                         <a href="javascript:;">Configuraciones</a>
                       </li>
-                      <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Salir</a></li>
+                      <li><a href="phps/logout.php"><i class="fa fa-sign-out pull-right"></i> Salir</a></li>
                     </ul>
                   </li>
 
@@ -123,54 +123,13 @@ if (!isset($_SESSION['id_usuario'])) {
             <div class="">
               <div class="page-title">
                 <div class="title_left">
-                  <h3>Ütz Awäch</h3>
+                  <h3 id="x_panel_titulo"></h3>
                 </div>
               </div>
               <div class="clearfix"></div>
               <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
-                  <div class="x_panel">
-                    <div class="x_title">
-                      <h2>Tus Modulos</h2>
-                      <div class="clearfix"></div>
-                    </div>
-                    <div class="x_content">
-                      <div class="row">
-                        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                          <div class="tile-stats modulo modulo-primary" data-class="modulo-primary">
-                            <div class="icon"><i class="fa fa-font text-primary"></i></div>
-                            <div class="count">0</div>
-                            <h3>A B C ...</h3>
-                            <p>Alfabeto.</p>
-                          </div>
-                        </div>
-                        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                          <div class="tile-stats modulo modulo-info" data-class="modulo-info">
-                            <div class="icon"><i class="fa fa-hashtag text-info"></i></div>
-                            <div class="count">0</div>
-                            <h3>1 2 3 ...</h3>
-                            <p>Números.</p>
-                          </div>
-                        </div>
-                        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                          <div class="tile-stats modulo modulo-success" data-class="modulo-success">
-                            <div class="icon"><i class="fa fa-users text-success"></i></div>
-                            <div class="count">0</div>
-                            <h3 class="text-success">Yo, tu, el ...</h3>
-                            <p>Pronombres.</p>
-                          </div>
-                        </div>
-                        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                          <div class="tile-stats modulo modulo-warning" data-class="modulo-warning">
-                            <div class="icon"><i class="fa fa-comments-o text-warning"></i></div>
-                            <div class="count">0</div>
-                            <h3 class="text-warning">ütz awäch</h3>
-                            <p>Frases.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <div class="x_panel" id="x_panel_princiapl"></div>
                 </div>
               </div>
 
@@ -225,7 +184,7 @@ if (!isset($_SESSION['id_usuario'])) {
 
       <!-- Custom Theme Scripts -->
       <script src="build/js/custom.min.js"></script>
-
+      <script src="js/function.js"></script>
       <script>
         $(document).ready(function(){
           $(".modulo").mouseover(function(){
@@ -237,6 +196,7 @@ if (!isset($_SESSION['id_usuario'])) {
             $("." + getClass + " > h3").css("color","#BAB8B8");
           });
         });
+        fn_menu('Ütz Awäch', 'phps/modulos.php');
       </script>
 
     </body>
