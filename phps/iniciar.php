@@ -1,9 +1,9 @@
 <?php include("session.php");
 $q_ini = "CALL IsUserPasswordValid('".$_POST['usuario_iniciar']."','".$_POST['clave_iniciar']."');";
-$e_ini = mysql_query($q_ini);
-$n_ini = mysql_num_rows($e_ini);
+$e_ini = $mysqli->query($q_ini);
+$n_ini = $e_ini->num_rows;
 if ($n_ini > 0) {
-	$a_ini = mysql_fetch_array($e_ini);
+	$a_ini = $e_ini->fetch_array(MYSQLI_ASSOC);
 	$_SESSION["id_usuario"] = $a_ini['id_usuario'];
 	$_SESSION["nombre_usuario"] = $a_ini['Nombre'];
 	echo 1;
