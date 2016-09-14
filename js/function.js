@@ -31,11 +31,25 @@ function fn_errorLogin(idMessage,message){
 // funcion Menu
 function fn_menu(titulo, urlPage){
 	$("#x_panel_titulo").html(titulo);
+	$("#x_panel_princiapl").html('<center><div align=center class="loader" style="width: 30px;height: 30px;"></div></center>');
 	$.ajax({
 		type:"POST",
 		url:urlPage,
 		success:function(res){
 			$("#x_panel_princiapl").html(res);
+		}
+	});
+}
+
+// load
+function fn_loadContent(idContent, urlContent, dataContent) {
+	$("#"+idContent).html('<center><div align=center class="loader" style="width: 35px;height: 35px;"></div></center>');
+	$.ajax({
+		type:"POST",
+		data:dataContent,
+		url:urlContent,
+		success:function(res){
+			$("#"+idContent).html(res);
 		}
 	});
 }

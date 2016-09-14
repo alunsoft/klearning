@@ -37,7 +37,7 @@ if (isset($_SESSION['id_usuario'])) {
               <form id="form_iniciar">
                 <h1>K-Learning</h1>
                 <div>
-                  <input type="text" class="form-control" placeholder="Username" required="" name="usuario_iniciar" id="usuario_iniciar"/>
+                  <input type="text" class="form-control" placeholder="Username" required="" autofocus name="usuario_iniciar" id="usuario_iniciar"/>
                 </div>
                 <div>
                   <input type="password" class="form-control" placeholder="Password" required="" name="clave_iniciar" id="clave_iniciar" />

@@ -26,6 +26,7 @@ if (!isset($_SESSION['id_usuario'])) {
 
       <!-- Custom Theme Style -->
       <link href="build/css/custom.min.css" rel="stylesheet">
+      <link href="css/style.css" rel="stylesheet">
 
       <style>
         .modulo:hover{
@@ -77,10 +78,10 @@ if (!isset($_SESSION['id_usuario'])) {
                 <div class="menu_section">
                   <h3>-</h3>
                   <ul class="nav side-menu">
-                    <li><a><i class="fa fa-home"></i> Inicio <span class="fa fa-chevron-down"></span></a>
-                      <ul class="nav child_menu">
-                        <li><a href="#" onclick="fn_menu('Ütz Awäch', 'phps/modulos.php')">Tus Modulos</a></li>
-                      </ul>
+                    <li>
+                      <a onclick="fn_menu('Ütz Awäch', 'phps/modulos.php')">
+                        <i class="fa fa-cubes"></i> Modulos
+                      </a>
                     </li>
                   </ul>
                 </div>
@@ -127,7 +128,7 @@ if (!isset($_SESSION['id_usuario'])) {
                 </div>
               </div>
               <div class="clearfix"></div>
-              <div class="row">
+              <div class="row" >
                 <div class="col-md-12 col-sm-12 col-xs-12">
                   <div class="x_panel" id="x_panel_princiapl"></div>
                 </div>
