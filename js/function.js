@@ -43,6 +43,7 @@ function fn_menu(titulo, urlPage){
 
 // load
 function fn_loadContent(idContent, urlContent, dataContent) {
+	$("#x_panel_titulo").html("");
 	$("#"+idContent).html('<center><div align=center class="loader" style="width: 35px;height: 35px;"></div></center>');
 	$.ajax({
 		type:"POST",

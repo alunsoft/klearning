@@ -8,36 +8,25 @@ if (!isset($_SESSION['id_usuario'])) {
   ?>
   <div class="x_panel">
     <div class="x_title bg-<?php echo $a_tema['color']; ?>">
-      <h2><i class="fa <?php echo $a_tema['icono']; ?>"></i> <?php echo $a_tema['nombre']; ?> <small style="color:#D1D1D1;"><?php echo $a_tema['ejemplo']; ?></small></h2>
+      <h2><i class="fa <?php echo $a_tema['icono']; ?>"></i> <?php echo $a_tema['nombre']; ?> <small style="color:black;"><?php echo $a_tema['ejemplo']; ?></small></h2>
       <ul class="nav navbar-right panel_toolbox nav-primary">
         <li><a class="close-link"  onclick="fn_menu('Ütz Awäch', 'phps/modulos.php')"><i class="fa fa-close"></i></a></li>
       </ul>
       <div class="clearfix"></div>
     </div>
     <div class="x_content">
-
-      <div class="" role="tabpanel" data-example-id="togglable-tabs">
-        <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-          <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Home</a>
-          </li>
-          <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Profile</a>
-          </li>
-          <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Profile</a>
-          </li>
-        </ul>
-        <div id="myTabContent" class="tab-content">
-          <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
-            <p>Lección 1</p>
-          </div>
-          <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
-            <p>Lección 2</p>
-          </div>
-          <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
-            <p>Lección 3</p>
-          </div>
-        </div>
-      </div>
-
+        <a class="btn btn-app col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <i class="fa <?php echo $a_tema['icono']; ?> text-<?php echo $a_tema['color']; ?>"></i> Lección 1
+        </a>
+        <a class="btn btn-app col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <i class="fa <?php echo $a_tema['icono']; ?> text-<?php echo $a_tema['color']; ?>"></i> Lección 2
+        </a>
+        <a class="btn btn-app col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <i class="fa <?php echo $a_tema['icono']; ?> text-<?php echo $a_tema['color']; ?>"></i> Lección 3
+        </a>
+        <a class="btn btn-app col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <i class="fa <?php echo $a_tema['icono']; ?> text-<?php echo $a_tema['color']; ?>"></i> Lección 4
+        </a>
     </div>
   </div>
 <?php } ?>
