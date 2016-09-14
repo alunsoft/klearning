@@ -7,11 +7,10 @@ if (!isset($_SESSION['id_usuario'])) {
   $a_tema = $e_tema->fetch_array(MYSQLI_ASSOC);
   ?>
   <div class="x_panel">
-    <div class="x_title">
-      <h2><i class="fa <?php echo $a_tema['icono']; ?>"></i> <?php echo $a_tema['nombre']; ?> <small><?php echo $a_tema['ejemplo']; ?></small></h2>
-      <ul class="nav navbar-right panel_toolbox">
-        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-        <li><a class="close-link"><i class="fa fa-close"></i></a></li>
+    <div class="x_title bg-<?php echo $a_tema['color']; ?>">
+      <h2><i class="fa <?php echo $a_tema['icono']; ?>"></i> <?php echo $a_tema['nombre']; ?> <small style="color:#D1D1D1;"><?php echo $a_tema['ejemplo']; ?></small></h2>
+      <ul class="nav navbar-right panel_toolbox nav-primary">
+        <li><a class="close-link"  onclick="fn_menu('Ütz Awäch', 'phps/modulos.php')"><i class="fa fa-close"></i></a></li>
       </ul>
       <div class="clearfix"></div>
     </div>

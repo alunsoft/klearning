@@ -11,7 +11,7 @@ if (!isset($_SESSION['id_usuario'])) {
   <div class="x_content">
     <div class="row">
       <?php while ($a_modulos = $e_modulos->fetch_array(MYSQLI_ASSOC)) { ?>
-        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12" onclick="fn_loadContent('contentSubModulo', 'phps/submodulos.php','id_tema=<?php echo $a_modulos['id_tema']; ?>')">
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12" onclick="fn_loadContent('x_panel_princiapl', 'phps/submodulos.php','id_tema=<?php echo $a_modulos['id_tema']; ?>')">
           <div class="tile-stats modulo modulo-<?php echo $a_modulos['color']; ?>" data-class="modulo-<?php echo $a_modulos['color']; ?>">
             <div class="icon"><i class="fa <?php echo $a_modulos['icono']; ?> text-<?php echo $a_modulos['color']; ?>"></i></div>
             <div class="count">0</div>
