@@ -64,7 +64,7 @@ if (!isset($_SESSION['id_usuario'])) {
               <!-- menu profile quick info -->
               <div class="profile">
                 <div class="profile_pic">
-                  <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                  <img src="images/user.png" alt="..." class="img-circle profile_img">
                 </div>
                 <div class="profile_info">
                   <span>Bienvenido,</span>
@@ -78,8 +78,13 @@ if (!isset($_SESSION['id_usuario'])) {
               <!-- sidebar menu -->
               <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                 <div class="menu_section">
-                  <h3>-</h3>
+                  <h3><?php echo $_SESSION["rol"]; ?></h3>
                   <ul class="nav side-menu">
+                    <li class="active">
+                      <a onclick="fn_menu('', 'phps/nosotros.php')">
+                        <i class="fa fa-child"></i> Nosotros
+                      </a>
+                    </li>
                     <li>
                       <a onclick="fn_menu('Ütz Awäch', 'phps/modulos.php')">
                         <i class="fa fa-cubes"></i> Modulos
@@ -103,14 +108,11 @@ if (!isset($_SESSION['id_usuario'])) {
                 <ul class="nav navbar-nav navbar-right">
                   <li class="">
                     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                      <img src="images/img.jpg" alt=""><?php echo $_SESSION['nombre_usuario']; ?>
+                      <img src="images/user.png" alt=""><?php echo $_SESSION['nombre_usuario']; ?>
                       <span class=" fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
-                      <li><a href="javascript:;"> Perfil</a></li>
-                      <li>
-                        <a href="javascript:;">Configuraciones</a>
-                      </li>
+                      <li><a href="javascript:fn_openModal('Perfil', 'formModal', 'phps/actualizarusuario.php', 'phps/perfil.php');"> Perfil</a></li>
                       <li><a href="phps/logout.php"><i class="fa fa-sign-out pull-right"></i> Salir</a></li>
                     </ul>
                   </li>
@@ -150,6 +152,28 @@ if (!isset($_SESSION['id_usuario'])) {
           <!-- /footer content -->
         </div>
       </div>
+
+    <div id="globalModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title" id="myModalTitle">--</h4>
+          </div>
+          <div class="modal-body">
+            <div id="bodyModal" style="padding: 5px 20px;">
+              
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default antoclose btn-globalModal" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary antosubmit btn-globalModal" id="saveInputModal" onclick="fn_saveModal()">Guardar</button>
+            <center><div align=center class="loader" id="loaderGlobalModal" style="width: 30px;height: 30px;display: none;"></div></center>
+          </div>
+        </div>
+      </div>
+    </div>
 
       <!-- jQuery -->
       <script src="vendors/jquery/dist/jquery.min.js"></script>
@@ -199,7 +223,7 @@ if (!isset($_SESSION['id_usuario'])) {
             $("." + getClass + " > h3").css("color","#BAB8B8");
           });
         });
-        fn_menu('Ütz Awäch', 'phps/modulos.php');
+        fn_menu('', 'phps/nosotros.php');
       </script>
 
     </body>

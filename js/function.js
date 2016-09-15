@@ -57,8 +57,40 @@ function fn_loadContent(idContent, urlContent, dataContent) {
 
 // cargar preguntas seccion
 function fn_loadQuestion(idContent, urlContent, dataContent){
-	$("#kl-content-lessons").hide("fast");
+	$(".kl-btn-select").hide("fast");
 	$("#kl-content-question").addClass("fadeInUp");
 	$("#kl-content-question").addClass("animated");
 	fn_loadContent(idContent, urlContent, dataContent);
+}
+
+function fn_openModal(titulo, formId, urlLoad, urlContent){
+	$("#myModalTitle").html(titulo);
+	$("#saveInputModal").attr("data-form", formId);
+	$("#saveInputModal").attr("data-url", urlLoad);
+	$("#globalModal").modal();
+	fn_loadContent('bodyModal', urlContent, '');
+}
+
+function fn_saveModal(){
+	idForm = $("#saveInputModal").attr("data-form");
+	urlLoad = $("#saveInputModal").attr("data-url");
+	serialData = $("#"+idForm).serialize();
+	$(".btn-globalModal").hide('fast');
+	$("#loaderGlobalModal").show('fast');
+	$.ajax({
+		type:"POST",
+		data:serialData,
+		url:urlLoad,
+		success:function(){
+			$("#globalModal").modal('toggle');
+			$(".btn-globalModal").show('fast');
+			$("#loaderGlobalModal").hide('fast');
+		},
+		error:function(res){
+			console.log("Error al cargar: " + res);
+			$("#globalModal").modal('toggle');
+			$(".btn-globalModal").show('fast');
+			$("#loaderGlobalModal").hide('fast');
+		}
+	});
 }
