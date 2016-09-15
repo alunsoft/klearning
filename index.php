@@ -23,7 +23,8 @@ if (!isset($_SESSION['id_usuario'])) {
       <link href="vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
       <!-- Select2 -->
       <link href="vendors/select2/dist/css/select2.min.css" rel="stylesheet">
-
+      <!-- Animate -->
+      <link href="vendors/animate.css/animate.css" rel="stylesheet">
       <!-- Custom Theme Style -->
       <link href="build/css/custom.min.css" rel="stylesheet">
       <link href="css/style.css" rel="stylesheet">

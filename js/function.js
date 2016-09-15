@@ -54,3 +54,11 @@ function fn_loadContent(idContent, urlContent, dataContent) {
 		}
 	});
 }
+
+// cargar preguntas seccion
+function fn_loadQuestion(idContent, urlContent, dataContent){
+	$("#kl-content-lessons").hide("fast");
+	$("#kl-content-question").addClass("fadeInUp");
+	$("#kl-content-question").addClass("animated");
+	fn_loadContent(idContent, urlContent, dataContent);
+}
