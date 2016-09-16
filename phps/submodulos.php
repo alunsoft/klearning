@@ -25,7 +25,7 @@ if (!isset($_SESSION['id_usuario'])) {
     </div>
     <div class="x_content">
         <?php while ($a_leccion = $e_leccion->fetch_array(MYSQLI_ASSOC)) { ?>
-          <a class="animated flipInY kl-btn-select btn btn-app col-xs-12 col-sm-6 col-md-4 col-lg-3" onclick="fn_loadQuestion('kl-content-question', 'phps/pregunta.php', 'id_leccion=<?php echo $a_leccion['id_leccion']; ?>')">
+          <a class="animated flipInY kl-btn-select btn btn-app col-xs-12 col-sm-6 col-md-4 col-lg-3" onclick="fn_loadQuestion('x_panel_princiapl', 'phps/pregunta.php', 'id_leccion=<?php echo $a_leccion['id_leccion']; ?>')">
             <i class="fa <?php echo $a_tema['icono']; ?> text-<?php echo $a_tema['color']; ?>"></i> <?php echo $a_leccion['nombre']; ?>
           </a>
         <?php } ?>
