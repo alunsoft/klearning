@@ -1,7 +1,4 @@
-<?php include("phps/session.php");
-if (!isset($_SESSION['id_usuario'])) {
-   header('Location: login.php');
-}else { ?>
+<?php include("phps/session.php"); ?>
   <!DOCTYPE html>
   <html lang="en">
     <head>
@@ -68,7 +65,7 @@ if (!isset($_SESSION['id_usuario'])) {
                 </div>
                 <div class="profile_info">
                   <span>Bienvenido,</span>
-                  <h2><?php echo $_SESSION['nombre_usuario']; ?></h2>
+                  <h2><?php if (isset($_SESSION['nombre_usuario'])) { echo $_SESSION['nombre_usuario']; }else{ echo "--"; } ?></h2>
                 </div>
               </div>
               <!-- /menu profile quick info -->
@@ -78,18 +75,25 @@ if (!isset($_SESSION['id_usuario'])) {
               <!-- sidebar menu -->
               <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                 <div class="menu_section">
-                  <h3><?php echo $_SESSION["rol"]; ?></h3>
+                  <h3><?php if (isset($_SESSION['rol'])) { echo $_SESSION["rol"]; }else{ echo "--"; } ?></h3>
                   <ul class="nav side-menu">
                     <li class="active">
+                      <a onclick="fn_menu('K-Learning', 'phps/inicio.php')">
+                        <i class="fa fa-home"></i> Inicio
+                      </a>
+                    </li>
+                    <li class="">
                       <a onclick="fn_menu('', 'phps/nosotros.php')">
                         <i class="fa fa-child"></i> Nosotros
                       </a>
                     </li>
-                    <li>
-                      <a onclick="fn_menu('Ütz Awäch', 'phps/modulos.php')">
-                        <i class="fa fa-cubes"></i> Modulos
-                      </a>
-                    </li>
+                    <?php if (isset($_SESSION['id_usuario'])) { ?>
+                      <li>
+                        <a onclick="fn_menu('Ütz Awäch', 'phps/modulos.php')">
+                          <i class="fa fa-cubes"></i> Modulos
+                        </a>
+                      </li>
+                    <?php } ?>
                   </ul>
                 </div>
               </div>
@@ -108,12 +112,17 @@ if (!isset($_SESSION['id_usuario'])) {
                 <ul class="nav navbar-nav navbar-right">
                   <li class="">
                     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                      <img src="images/user.png" alt=""><?php echo $_SESSION['nombre_usuario']; ?>
+                      <img src="images/user.png" alt=""><?php if (isset($_SESSION['nombre_usuario'])) { echo $_SESSION['nombre_usuario']; }else{ echo "Anonimo"; } ?>
                       <span class=" fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
-                      <li><a href="javascript:fn_openModal('Perfil', 'formModal', 'phps/actualizarusuario.php', 'phps/perfil.php');"> Perfil</a></li>
-                      <li><a href="phps/logout.php"><i class="fa fa-sign-out pull-right"></i> Salir</a></li>
+                      <?php if (isset($_SESSION['id_usuario'])) { ?>
+                        <li><a href="javascript:fn_openModal('Perfil', 'formModal', 'phps/actualizarusuario.php', 'phps/perfil.php');"> Perfil</a></li>
+                        <li><a href="phps/logout.php"><i class="fa fa-sign-out pull-right"></i> Salir</a></li>
+                      <?php }else{ ?>
+                        <li><a href="phps/logout.php"><i class="fa fa-user pull-right"></i> Iniciar Session</a></li>
+                        <li><a href="phps/logout.php#signup"><i class="fa fa-user-plus pull-right"></i> Registrate</a></li>
+                      <?php } ?>
                     </ul>
                   </li>
 
@@ -223,9 +232,8 @@ if (!isset($_SESSION['id_usuario'])) {
             $("." + getClass + " > h3").css("color","#BAB8B8");
           });
         });
-        fn_menu('', 'phps/nosotros.php');
+        fn_menu('K-Learning', 'phps/inicio.php');
       </script>
 
     </body>
   </html>
-<?php } ?>

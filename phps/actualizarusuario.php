@@ -9,3 +9,5 @@ if (!isset($_SESSION['id_usuario'])) {
 	$e_actu = $mysqli->query($q_actu);
 	$_SESSION["nombre_usuario"] = $_POST['nombre'];
 }
+$mysqli->close();
+?>

@@ -32,4 +32,5 @@ if (!isset($_SESSION['id_usuario'])) {
       <div class="row" id="kl-content-question"></div>
     </div>
   </div>
-<?php } ?>
+<?php } 
+$mysqli->close(); ?>

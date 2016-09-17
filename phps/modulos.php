@@ -22,9 +22,10 @@ if (!isset($_SESSION['id_usuario'])) {
       <?php } ?>
     </div>
     <div class="row">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"id="contentSubModulo">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="contentSubModulo">
         
       </div>
     </div>
   </div>
-<?php } ?>
+<?php }
+$mysqli->close(); ?>

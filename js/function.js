@@ -94,3 +94,66 @@ function fn_saveModal(){
 		}
 	});
 }
+
+
+// set evaluacion
+function fn_leccionPreguntas(arrayPreguntas, contestar, leccionUsuario){
+	arrayPregunt = arrayPreguntas.split(",");
+	respCorrecta = $("#respueta_correcta").attr("data-respuesta");
+	newArrayPreg = "";
+	instrucion = "";
+	pregunta = "";
+	idPregunta = "";
+	modulo = $("#boton_continuar").attr("data-modulo");
+	icount = 0;
+	for (i = 0; i < arrayPregunt.length; i++) {
+		if (i != 0) { 
+			if (icount == 0) { coma = ""; }else{ coma = ","; }
+			newArrayPreg += coma+arrayPregunt[i];
+			icount++; 
+		}else{
+			separateArray = arrayPregunt[i].split("|");
+			idPregunta = separateArray[1];
+			pregunta = separateArray[2];
+			instrucion = separateArray[3];
+		}
+	}
+	$("#mev_respuesta").html('<center><div align=center class="loader" style="width: 35px;height: 35px;"></div></center>');
+	$("#mev_instruccion").html("");
+	$("#mev_pregunta").html("");
+	if (contestar == "no") {
+		if(arrayPreguntas == ""){
+			$("#mev_respuesta").html("<h1>No hay preguntas en esta leccion.</h1>");
+			$("#boton_continuar").attr("onclick","fn_loadContent('x_panel_princiapl', 'phps/submodulos.php','id_modulo="+modulo+"')");	
+		}else{
+			$.ajax({
+				type:"POST",
+				data:"preguntaid="+idPregunta,
+				url:"phps/respuesta.php",
+				success:function(resp){
+					$("#mev_respuesta").html(resp);
+					$("#mev_instruccion").html(instrucion);
+					$("#mev_pregunta").html(pregunta);
+					$("#boton_continuar").attr("onclick","fn_leccionPreguntas(\""+newArrayPreg+"\",\"si\",\""+leccionUsuario+"\")");
+				}
+			});
+		}
+	}else{
+		if(arrayPreguntas == ""){
+			$("#mev_respuesta").html("<h1>Felicidades finalizaste la leccion.</h1>");
+			$("#boton_continuar").attr("onclick","fn_loadContent('x_panel_princiapl', 'phps/submodulos.php','id_modulo="+modulo+"')");	
+		}else{
+			$.ajax({
+				type:"POST",
+				data:"respCorrecta="+respCorrecta+"&leccionUsuario="+leccionUsuario+"&preguntaid="+idPregunta,
+				url:"phps/respuesta.php",
+				success:function(resp){
+					$("#mev_respuesta").html(resp);
+					$("#mev_instruccion").html(instrucion);
+					$("#mev_pregunta").html(pregunta);
+					$("#boton_continuar").attr("onclick","fn_leccionPreguntas(\""+newArrayPreg+"\",\"si\",\""+leccionUsuario+"\")");
+				}
+			});
+		}
+	}
+}

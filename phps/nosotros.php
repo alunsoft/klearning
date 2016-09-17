@@ -13,6 +13,9 @@ if (!isset($_SESSION['id_usuario'])) {
 		<p>
 			Nuestro principal objetivo es facilitar el aprendizaje de un idioma nativo de Guatemala por medio de material de apoyo especializado.Nuestro público objetivo, son todas las personas que deseen tener una base sólida del idioma kakchikel, ya sea por comprensión básica del mismo o para especializarse posteriormente en el idioma.
 		</p>
+		<p>
+			Conoce un poco mas sobre nosotros, nuestro equipo y el proyecto, visita nuestro <a href="http://progravii.blogspot.com/" target="blank"><i class="fa fa-users"></i> Blog</a>.
+		</p>
 	</div>
 
 	<div class="clearfix"></div>
@@ -90,4 +93,5 @@ if (!isset($_SESSION['id_usuario'])) {
 			</div>
 		</div>
 	</div>
-<?php } ?>
+<?php }
+$mysqli->close(); ?>

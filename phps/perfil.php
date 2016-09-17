@@ -25,4 +25,5 @@ if (!isset($_SESSION['id_usuario'])) {
         </div>
       </div>
     </form>
-<?php } ?>
+<?php }
+$mysqli->close(); ?>

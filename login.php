@@ -50,8 +50,8 @@ if (isset($_SESSION['id_usuario'])) {
                 <div class="clearfix"></div>
 
                 <div class="separator">
-                  <p class="change_link">Quieres unirte?
-                    <a href="#signup" class="to_register"> Crea una cuenta </a>
+                  <p class="change_link">Quieres unirte?<br>
+                    <a href="#signup" class="to_register btn btn-info" style="text-decoration: none;"> Crea una cuenta </a>
                   </p>
                   <div class="clearfix"></div>
                   <br />
@@ -68,16 +68,19 @@ if (isset($_SESSION['id_usuario'])) {
               <form>
                 <h1>Crear Cuenta</h1>
                 <div>
-                  <input type="text" class="form-control" placeholder="Username" required="" />
+                  <input type="text" class="form-control" placeholder="Nombre" name="nombre_r" id="nombre_r" required="" />
                 </div>
                 <div>
-                  <input type="email" class="form-control" placeholder="Email" required="" />
+                  <input type="text" class="form-control" placeholder="Username" name="username_r" id="username_r" required="" />
                 </div>
                 <div>
-                  <input type="password" class="form-control" placeholder="Password" required="" />
+                  <input type="email" class="form-control" placeholder="Email" name="email_r" id="email_r" required="" />
                 </div>
                 <div>
-                  <a class="btn btn-default submit" href="index.php">Crear</a>
+                  <input type="password" class="form-control" placeholder="Password" name="clave_r" id="clave_r" required="" />
+                </div>
+                <div>
+                  <a class="btn btn-default submit" >Crear</a>
                 </div>
                 <div class="clearfix"></div>
                 <div class="separator">
